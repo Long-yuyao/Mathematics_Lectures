@@ -50,14 +50,14 @@ and we know that $R = (R^{-1})^{T}$
 
 ### 3.2 Perspective Projection
 All we should do is:
-![](img\3.2.PNG)
+![Perspective Projection](img\3.2.PNG "Perspective Projection")
 
 We can divide this process into two parts:  
 1. Orthographic Projection $p\rightarrow p'$
 2. scaling  $p'\rightarrow p''$
 
 For step1:
-![](img\3.2.1.PNG)
+![sacling](img\3.2.1.PNG "sacling")
 
 we know that $y' = \frac{ny}{z}$ and $x' = \frac{nx}{z}$
 
@@ -74,3 +74,25 @@ $$\begin{bmatrix}
 \end{bmatrix}
 $$
 with $Aspect = \frac{x}{y}$, $cot\theta = \frac{n}{0.5H}$
+## 4. Drawing to Raster Displays
+### 4.1 Pixel Values Approximate A Triangle By Sampling
+1. Algorithm for discretizing a function by sampling a function:
+   
+   ```
+   for (i in domian(x); i++)
+        output[x] = f(x)
+    ```
+2.  Algorithm of a pixel is in triangle:
+
+    ```
+    for (i in domain(x); i++)
+        for(y in domain(y); y++)
+            output[x][y] = isinside(tri, x+0.5, y+0.5)
+
+    ``` 
+3. How to evaluate if a pixel is in triangel:
+
+![triangle](img\4.1.PNG "`triangle`")
+
+If $\vec{QP_{1}}\times \vec{QP_{2}}$ has the same direction with  $\vec{P_0P_{1}}\times \vec{P_0P_{2}}$, then that shows they are in the same side.
+Similarly, if a point stand in the same side with $P_0,P_1,P_2$, which means it is in the triangle.
