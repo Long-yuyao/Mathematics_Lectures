@@ -49,20 +49,22 @@ and we know that $R = (R^{-1})^{T}$
 ![Orthographic Projection](img/3.1.PNG  "Orthographic Projection")
 
 ### 3.2 Perspective Projection
-All we should do is:
-![Perspective Projection](img\3.2.PNG "Perspective Projection")
+All we should do is:   
+
+![Perspective Projection](img/3.2.PNG "Perspective Projection")
 
 We can divide this process into two parts:  
 1. Orthographic Projection $p\rightarrow p'$
 2. scaling  $p'\rightarrow p''$
 
-For step1:
-![sacling](img\3.2.1.PNG "sacling")
+For step1:   
+
+![sacling](img/3.2.1.PNG "sacling")
 
 we know that $y' = \frac{ny}{z}$ and $x' = \frac{nx}{z}$
 
 For step2:  
-Assume the hight of projection is $H$, and the hight of cube in the end is 2. Hence,
+Assume the hight of projection is $H$, and the hight of cube in the end is 2. Hence,      
 $$\frac{y'}{y''} = \frac{H}{2}$$
 
 and the transfer matrix is 
@@ -90,9 +92,27 @@ with $Aspect = \frac{x}{y}$, $cot\theta = \frac{n}{0.5H}$
             output[x][y] = isinside(tri, x+0.5, y+0.5)
 
     ``` 
-3. How to evaluate if a pixel is in triangel:
+3. How to evaluate if a pixel is in triangel:    
 
-![triangle](img\4.1.PNG "`triangle`")
+    ![triangle](img/4.1.PNG "`triangle`$$")
 
-If $\vec{QP_{1}}\times \vec{QP_{2}}$ has the same direction with  $\vec{P_0P_{1}}\times \vec{P_0P_{2}}$, then that shows they are in the same side.
-Similarly, if a point stand in the same side with $P_0,P_1,P_2$, which means it is in the triangle.
+    If $\vec{QP_{1}}\times \vec{QP_{2}}$ has the same direction with  $\vec{P_0P_{1}}\times \vec{P_0P_{2}}$, then that shows they are in the same side.    
+    Similarly, if a point stand in the same side with $P_0,P_1,P_2$, which means it is in the triangle.
+
+## 5. Rasterization on Real Displays
+### 5.1 Aliasing
+![](img/5.1.PNG)
+
+
+:bulb: **Solutions: Blurring (Pre-Filtering)Before Sampling**
+
+1. Why undersampling introduces aliasing? 
+2. Why pre-filtering then sampling can do antialiasing?
+
+#### 5.1.2 Intro signal process
+
+Fourier Transform
+$$f(x) = \frac{A}{2} + \frac{2Acos(t\omega)}{\pi} - \frac{2Acos(3t\omega)}{3\pi} ... $$
+
+
+
